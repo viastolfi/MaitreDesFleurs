@@ -1,13 +1,13 @@
 #include "Fleur.hpp"
 
 Fleur::Fleur(float tailleMax)
-  : Vegetal(), tailleMax(tailleMax)
+  : tailleMax(tailleMax)
 {}
 
 void Fleur::croissance()
 {
-  if (this->getTaille() + 0.1 > this->tailleMax) 
-    this->setTaille(this->tailleMax);
+  if (getTaille() + 0.1 > tailleMax) 
+    setTaille(tailleMax);
   else
-    this->setTaille(this->getTaille() + 0.1);
+    setTaille(getTaille() + 0.1);
 }

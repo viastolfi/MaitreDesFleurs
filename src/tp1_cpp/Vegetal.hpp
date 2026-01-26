@@ -3,9 +3,9 @@
 class Vegetal 
 {
 public:
-  Vegetal(float taille = 0.0);
+  Vegetal();
   virtual ~Vegetal() = default;
-  float getTaille();
+  float getTaille() const; 
   virtual void croissance() = 0;
 private:
   float mTaille;
