@@ -2,5 +2,11 @@
 
 void Arbre::croissance() 
 {
-  setTaille(getTaille() + 1.0);
+  if (_comportementCroissance)
+    setTaille(_comportementCroissance->newTaille(getTaille()));
+}
+
+void Arbre::setComportement(IComportementCroissance* comportement) 
+{
+  _comportementCroissance = comportement;
 }
