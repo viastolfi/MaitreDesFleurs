@@ -6,3 +6,4 @@ Arbre
 Fruit
 Arbre
 Arbre
+Champignon 1.23

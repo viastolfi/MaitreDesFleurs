@@ -3,6 +3,8 @@
 
 #include "tp1_cpp/Arbre.hpp"
 #include "tp1_cpp/Fleur.hpp"
+#include "tp1_cpp/ChampignonAdapteur.hpp"
+#include "tp1_cpp/Champignon.hpp"
 
 #include <memory>
 #include <optional>
@@ -17,6 +19,11 @@ static std::unique_ptr<Vegetal> creerArbre()
 static std::unique_ptr<Vegetal> creerFleur(double tailleMax)
 {
 	return std::make_unique<Fleur>(tailleMax);
+}
+
+static std::unique_ptr<Vegetal> creerChampignon(float vitessePousse)
+{
+  return std::make_unique<ChampignonAdapteur>(std::make_unique<Champignon>(vitessePousse));
 }
 
 std::optional<std::unique_ptr<Vegetal>>
@@ -39,5 +46,11 @@ std::optional<std::unique_ptr<Vegetal>>
 		}
 		return nullptr;
 	}
+  else if (type == "Champignon")
+  {
+    float vitessePousse;
+    iss >> vitessePousse;
+    return creerChampignon(vitessePousse); 
+  }
 	return std::nullopt;
 }
